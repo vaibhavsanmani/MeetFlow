@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Landing from './pages/landing'
 import About from './pages/about'
+import JoinMeeting from './pages/meet'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
     <>
       <Landing/>
       <About/>
+      <JoinMeeting/>
       
     </>
   )
