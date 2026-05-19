@@ -11,9 +11,6 @@ export default function JoinMeeting() {
 
     // Example redirect
     alert(`Joining meeting: ${meetingCode}`);
-
-    // You can replace this with React Router navigation
-    // navigate(`/meeting/${meetingCode}`);
   };
 
   return (
