@@ -8,8 +8,6 @@ export default function JoinMeeting() {
       alert("Please enter a meeting code");
       return;
     }
-
-    // Example redirect
     alert(`Joining meeting: ${meetingCode}`);
   };
 
