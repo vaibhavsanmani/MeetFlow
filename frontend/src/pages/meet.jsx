@@ -5,7 +5,7 @@ export default function JoinMeeting() {
 
   const handleJoin = () => {
     if (!meetingCode.trim()) {
-      alert("Please enter a meeting code");
+      alert("Please enter room code");
       return;
     }
     alert(`Joining meeting: ${meetingCode}`);
