@@ -49,7 +49,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* FEATURES */}
           <div className="col-md-3 mb-4">
             <h5 className="fw-semibold mb-3">Features</h5>
             <ul className="list-unstyled text-light-emphasis">
@@ -60,7 +59,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* SOCIAL LINKS */}
           <div className="col-md-3 mb-4">
             <h5 className="fw-semibold mb-3">Connect</h5>
 
@@ -84,7 +82,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* BOTTOM */}
         <hr className="border-secondary" />
 
         <div className="text-center text-light-emphasis">
