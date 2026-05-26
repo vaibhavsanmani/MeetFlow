@@ -11,7 +11,6 @@ export default function Footer() {
       <div className="container">
         <div className="row">
 
-          {/* LOGO & DESCRIPTION */}
           <div className="col-md-4 mb-4">
             <h2 className="fw-bold">
               Meet<span className="text-info">Flow</span>
@@ -21,8 +20,7 @@ export default function Footer() {
               meetings, team collaboration, and secure communication.
             </p>
           </div>
-
-          {/* QUICK LINKS */}
+          
           <div className="col-md-2 mb-4">
             <h5 className="fw-semibold mb-3">Quick Links</h5>
             <ul className="list-unstyled">
