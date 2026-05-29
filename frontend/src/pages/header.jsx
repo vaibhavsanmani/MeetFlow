@@ -12,7 +12,6 @@ function header() {
         sticky="top"
       >
         <Container>
-          {/* Logo */}
           <Navbar.Brand
             href="/"
             className="fw-bold fs-3 text-info"
@@ -20,11 +19,7 @@ function header() {
           >
             MeetFlow
           </Navbar.Brand>
-
-          {/* Toggle Button */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
-          {/* Nav Links */}
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto gap-3">
               <Nav.Link href="/" className="text-white">
@@ -43,8 +38,6 @@ function header() {
                 Contact
               </Nav.Link>
             </Nav>
-
-            {/* Right Buttons */}
             <div className="d-flex gap-2">
               <Button variant="outline-info">
                 Login
