@@ -15,7 +15,6 @@ export default function Landing() {
 
           <div className="row align-items-center g-5">
 
-            {/* LEFT CONTENT */}
             <div className="col-12 col-lg-6 text-center text-lg-start">
 
               <p
@@ -55,7 +54,6 @@ export default function Landing() {
                 the digital world.
               </p>
 
-              {/* BUTTONS */}
               <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
 
                 <button
@@ -88,7 +86,6 @@ export default function Landing() {
 
             </div>
 
-            {/* RIGHT IMAGE */}
             <div className="col-12 col-lg-6 text-center">
 
               <img
@@ -109,7 +106,6 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* FEATURES SECTION */}
       <section className="container py-5">
 
         <div className="text-center mb-5">
@@ -137,7 +133,6 @@ export default function Landing() {
 
         <div className="row g-4">
 
-          {/* CARD 1 */}
           <div className="col-12 col-md-6 col-lg-4">
             <div
               className="p-4 rounded-5 h-100 shadow-sm"
@@ -177,7 +172,6 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* CARD 2 */}
           <div className="col-12 col-md-6 col-lg-4">
             <div
               className="p-4 rounded-5 h-100 shadow-sm"
@@ -216,7 +210,6 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* CARD 3 */}
           <div className="col-12 col-md-6 col-lg-4 mx-md-auto">
             <div
               className="p-4 rounded-5 h-100 shadow-sm"
@@ -259,7 +252,6 @@ export default function Landing() {
 
       </section>
 
-      {/* CTA SECTION */}
       <section
         className="container py-5"
       >
