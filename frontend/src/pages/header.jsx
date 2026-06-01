@@ -1,7 +1,7 @@
 import React from "react";
-import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { Navbar, Container, Nav, Button } from "react-bootstrap";
 
-function header() {
+function Header() {
   return (
     <>
       <Navbar
@@ -17,7 +17,12 @@ function header() {
             className="fw-bold fs-3 text-info"
             style={{ letterSpacing: "1px" }}
           >
-            MeetFlow
+            <img 
+              src="/logo.png" 
+              alt="MeetFlow Logo"
+              style={{ height: "40px", width: "auto" }}
+              className="me-2"
+            />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -38,12 +43,12 @@ function header() {
                 Contact
               </Nav.Link>
             </Nav>
-            <div className="d-flex gap-2">
-              <Button variant="outline-info">
+            <div className="d-flex gap-2 flex-wrap">
+              <Button variant="outline-info" className="text-nowrap">
                 Login
               </Button>
 
-              <Button variant="info" className="text-dark fw-semibold">
+              <Button variant="info" className="text-dark fw-semibold text-nowrap">
                 Join Meeting
               </Button>
             </div>
@@ -54,4 +59,4 @@ function header() {
   );
 }
 
-export default header;
+export default Header;

@@ -1,6 +1,6 @@
 import React from "react";
 
-function about() {
+function About() {
   return (
     <>
       <div className="container py-5">
@@ -37,4 +37,4 @@ function about() {
   );
 }
 
-export default about;
+export default About;
