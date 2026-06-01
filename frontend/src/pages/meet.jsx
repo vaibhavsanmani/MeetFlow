@@ -30,7 +30,6 @@ export default function JoinMeeting() {
           backdropFilter: "blur(10px)",
         }}
       >
-        {/* Logo / Title */}
         <div className="text-center mb-4">
           <div
             className="d-inline-flex justify-content-center align-items-center mb-3"
@@ -55,7 +54,6 @@ export default function JoinMeeting() {
           </p>
         </div>
 
-        {/* Input */}
         <div className="mb-4">
           <label className="form-label fw-semibold text-secondary">
             Meeting Code
@@ -75,7 +73,6 @@ export default function JoinMeeting() {
           />
         </div>
 
-        {/* Button */}
         <button
           className="btn btn-primary btn-lg w-100 fw-semibold"
           onClick={handleJoin}
@@ -90,7 +87,6 @@ export default function JoinMeeting() {
           Join Now
         </button>
 
-        {/* Footer */}
         <div className="text-center mt-4">
           <small className="text-muted">
             Secure • Fast • Reliable Meetings
