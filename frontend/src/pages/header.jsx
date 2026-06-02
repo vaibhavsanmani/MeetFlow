@@ -6,23 +6,24 @@ function Header() {
     <>
       <Navbar
         expand="lg"
-        bg="dark"
         variant="dark"
-        className="py-3 shadow-sm"
+        className="py-3 shadow-sm navbar-brand-section"
         sticky="top"
+        style={{ backgroundColor: "rgba(15, 23, 42, 0.95)" }}
       >
         <Container>
           <Navbar.Brand
             href="/"
-            className="fw-bold fs-3 text-info"
-            style={{ letterSpacing: "1px" }}
+            className="d-flex align-items-center fw-bold text-white brand-logo-wrapper"
           >
-            <img 
-              src="/logo.png" 
+            <img
+              src="/logo.png"
               alt="MeetFlow Logo"
-              style={{ height: "40px", width: "auto" }}
-              className="me-2"
+              style={{ height: "38px", width: "auto", marginRight: "10px" }}
             />
+            <span className="brand-text">
+              Meet<span className="text-info" style={{ fontWeight: "800" }}>Flow</span>
+            </span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -44,7 +45,7 @@ function Header() {
               </Nav.Link>
             </Nav>
             <div className="d-flex gap-2 flex-wrap">
-              <Button variant="outline-info" className="text-nowrap">
+              <Button variant="outline-light" className="text-nowrap">
                 Login
               </Button>
 

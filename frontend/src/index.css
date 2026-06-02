@@ -1,0 +1,150 @@
+:root {
+  color-scheme: light;
+  --bg: #f8fbff;
+  --surface: #ffffff;
+  --surface-soft: #eef6ff;
+  --primary: #0ea5e9;
+  --primary-dark: #2563eb;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --card-border: #dbeafe;
+  --shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+}
+
+button {
+  transition: all 0.25s ease;
+}
+
+.page-shell {
+  background-color: var(--bg);
+}
+
+.hero-section {
+  background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.16), transparent 25%),
+    linear-gradient(135deg, #f8fbff, #eff6ff);
+}
+
+.hero-badge {
+  color: var(--primary);
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-size: clamp(2.7rem, 7vw, 5rem);
+  line-height: 1.05;
+  color: var(--text-primary);
+}
+
+.hero-copy {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.9;
+  max-width: 640px;
+}
+
+.hero-actions .btn {
+  border-radius: 1rem;
+  padding: 1rem 1.75rem;
+  font-weight: 700;
+}
+
+.hero-actions .btn-light {
+  border: 1px solid var(--card-border);
+}
+
+.hero-image-card {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero-image-card img {
+  min-height: 420px;
+  object-fit: cover;
+}
+
+.section-heading {
+  color: var(--text-primary);
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.section-copy {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.feature-card {
+  background-color: var(--surface);
+  border: 1px solid var(--card-border);
+  border-radius: 2rem;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+}
+
+.feature-icon {
+  font-size: 2.6rem;
+}
+
+.feature-title {
+  color: var(--text-primary);
+}
+
+.feature-copy {
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.brand-cta-box {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+}
+
+.cta-heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.cta-copy {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.btn-light {
+  color: var(--text-primary);
+}
+
+.navbar-brand-section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.brand-logo-wrapper {
+  font-size: 1.4rem;
+  line-height: 1;
+  gap: 0.5rem;
+}
+
+.brand-text {
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
