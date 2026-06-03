@@ -38,7 +38,7 @@ export default function JoinMeeting() {
               height: "70px",
               borderRadius: "20px",
               background:
-                "linear-gradient(135deg, #2563eb, #3b82f6)",
+                "linear-gradient(135deg, #bfc8de, #bfc8de)",
               color: "white",
               fontSize: "28px",
               fontWeight: "bold",
