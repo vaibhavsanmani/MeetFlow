@@ -4,6 +4,7 @@ import About from './pages/about'
 import JoinMeeting from './pages/meet'
 import Footer from './pages/footer'
 import Header from './pages/header'
+import Login from './pages/login'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <Landing/>
       <About/>
+      <Login />
       <JoinMeeting/>
       <Footer/>
       

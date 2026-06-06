@@ -45,9 +45,11 @@ function Header() {
               </Nav.Link>
             </Nav>
             <div className="d-flex gap-2 flex-wrap">
-              <Button variant="outline-light" className="text-nowrap">
-                Login
-              </Button>
+              <a href="#login" style={{ textDecoration: 'none' }}>
+                <Button variant="outline-light" className="text-nowrap">
+                  Login
+                </Button>
+              </a>
 
               <Button variant="info" className="text-dark fw-semibold text-nowrap">
                 Join Meeting
