@@ -5,7 +5,7 @@ export default function Login() {
     <section id="login" className="container py-5">
       <div className="row justify-content-center">
         <div className="col-12 col-md-8 col-lg-6">
-          <div className="card shadow-sm p-4 rounded-4">
+          <div className="login-card p-4 rounded-4">
             <h2 className="mb-3 text-center">Sign in to MeetFlow</h2>
 
             <form>
