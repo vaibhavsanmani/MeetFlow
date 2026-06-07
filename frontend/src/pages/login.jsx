@@ -32,7 +32,7 @@ export default function Login() {
             </form>
 
             <div className="text-center mt-3 small text-muted">
-              Don't have an account? <a href="#">Sign up</a>
+              Don't have an account? <a href="#signup">Sign up</a>
             </div>
           </div>
         </div>
