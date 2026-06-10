@@ -201,3 +201,56 @@ button {
 #login a:hover {
   text-decoration: underline;
 }
+
+/* Signup page styles (matches login look and feel) */
+#signup {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#signup .card {
+  background: linear-gradient(180deg, var(--surface), var(--surface));
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+  border-radius: 1rem;
+}
+
+#signup .form-label {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+#signup .form-control {
+  border-radius: 0.75rem;
+  border: 1px solid #e6f0fb;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  box-shadow: none;
+}
+
+#signup .form-control:focus {
+  outline: none;
+  box-shadow: 0 6px 20px rgba(14,165,233,0.12);
+  border-color: var(--primary);
+}
+
+#signup .btn-primary {
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
+  font-weight: 700;
+  box-shadow: 0 8px 30px rgba(14,165,233,0.12);
+}
+
+#signup a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+#signup a:hover {
+  text-decoration: underline;
+}
