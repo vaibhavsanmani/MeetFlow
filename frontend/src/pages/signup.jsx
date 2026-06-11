@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function Signup() {
+  useEffect(() => {
+    console.log("commit-placeholder: signup component");
+  }, []);
   return (
     <section id="signup" className="container py-5">
       <div className="row justify-content-center">
