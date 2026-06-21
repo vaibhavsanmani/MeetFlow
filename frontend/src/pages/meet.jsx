@@ -31,27 +31,22 @@ export default function JoinMeeting() {
         }}
       >
         <div className="text-center mb-4">
-          <div
-            className="d-inline-flex justify-content-center align-items-center mb-3"
-            style={{
-              width: "70px",
-              height: "70px",
-              borderRadius: "20px",
-              background:
-                "linear-gradient(135deg, #bfc8de, #bfc8de)",
-              color: "white",
-              fontSize: "28px",
-              fontWeight: "bold",
-            }}
-          >
-            M
-          </div>
+          <div className="d-inline-flex justify-content-center align-items-center mb-3">
+            <svg
+              width="70"
+              height="70"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ borderRadius: 20, background: "linear-gradient(135deg,#c7d2fe,#93c5fd)", padding: 12 }}
+              aria-hidden="true"
+            >
+              <path d="M17 10.5V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3.5l4 4v-11l-4 4z" fill="#fff" />
+            </svg>
 
           <h2 className="fw-bold mb-2">Join Meeting</h2>
 
-          <p className="text-muted mb-0">
-            Enter your meeting code to continue
-          </p>
+          <p className="text-muted mb-0">Paste your meeting code and press Enter</p>
         </div>
 
         <div className="mb-4">
@@ -65,11 +60,11 @@ export default function JoinMeeting() {
             placeholder="e.g. ABCD-1234"
             value={meetingCode}
             onChange={(e) => setMeetingCode(e.target.value)}
-            style={{
-              borderRadius: "14px",
-              padding: "14px",
-              backgroundColor: "#f8fafc",
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleJoin();
             }}
+            aria-label="Meeting code"
+            style={{ borderRadius: "14px", padding: "14px", backgroundColor: "#f8fafc" }}
           />
         </div>
 
@@ -79,9 +74,9 @@ export default function JoinMeeting() {
           style={{
             borderRadius: "14px",
             padding: "12px",
-            background:
-              "linear-gradient(135deg, #2563eb, #3b82f6)",
+            background: "linear-gradient(135deg,#2563eb,#3b82f6)",
             border: "none",
+            transition: "transform 150ms ease, box-shadow 150ms ease",
           }}
         >
           Join Now
