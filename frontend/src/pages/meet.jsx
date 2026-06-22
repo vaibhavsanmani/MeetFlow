@@ -13,6 +13,7 @@ export default function JoinMeeting() {
   };
 
   return (
+
     <div
       className="d-flex justify-content-center align-items-center min-vh-100 px-3"
       style={{
@@ -43,6 +44,8 @@ export default function JoinMeeting() {
             >
               <path d="M17 10.5V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3.5l4 4v-11l-4 4z" fill="#fff" />
             </svg>
+
+          </div>
 
           <h2 className="fw-bold mb-2">Join Meeting</h2>
 
@@ -89,5 +92,7 @@ export default function JoinMeeting() {
         </div>
       </div>
     </div>
+
   );
+
 }
