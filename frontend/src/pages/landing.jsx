@@ -1,4 +1,5 @@
 import React from "react";
+import "./landing.css";
 
 export default function Landing() {
   return (
@@ -38,7 +39,7 @@ export default function Landing() {
         </div>
       </section>
 
-      <section className="container py-5">
+      <section className="why-section container py-5">
         <div className="text-center mb-5">
           <h2 className="section-heading fw-bold">Why MeetFlow</h2>
           <p className="section-copy">Video meetings built for teamwork, speed, and security.</p>
