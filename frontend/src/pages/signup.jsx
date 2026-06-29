@@ -60,8 +60,13 @@ export default function Signup() {
     <section id="signup" className="container py-5">
       <div className="row justify-content-center">
         <div className="col-12 col-md-8 col-lg-6">
-          <div className="card shadow-sm p-4 rounded-4">
-            <h2 className="mb-3 text-center">Create your MeetFlow account</h2>
+          <div className="signup-card p-4 p-sm-5 rounded-4">
+            <div className="text-center mb-4">
+              <h2 className="mb-2">Create your MeetFlow account</h2>
+              <p className="text-muted mb-0">
+                Sign up to schedule meetings, join rooms, and collaborate instantly.
+              </p>
+            </div>
 
             {error && <div className="alert alert-danger">{error}</div>}
 
