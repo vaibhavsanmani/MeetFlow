@@ -1,4 +1,5 @@
 import React from "react";
+import "./about.css";
 
 function About() {
   const features = [
@@ -26,9 +27,9 @@ function About() {
   ];
 
   return (
-    <div className="page-shell">
+    <div className="page-shell about-page">
       {/* Hero Section */}
-      <section className="hero-section container-fluid min-vh-100 d-flex align-items-center">
+      <section className="hero-section about-hero-section container-fluid min-vh-100 d-flex align-items-center">
         <div className="container py-5">
           <div className="row align-items-center g-5 justify-content-center">
             <div className="col-12 col-lg-8 text-center">
@@ -88,9 +89,9 @@ function About() {
         <div className="row g-4 justify-content-center">
           {team.map((m) => (
             <div key={m.name} className="col-sm-8 col-md-6 col-lg-4">
-              <div className="feature-card text-center h-100">
+              <div className="feature-card team-card text-center h-100">
                 <div 
-                  className="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-4 fw-bold" 
+                  className="avatar bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-4 fw-bold" 
                   style={{ width: 72, height: 72, fontSize: "1.5rem" }}
                 >
                   {m.name.split(' ').map(n => n[0]).join('')}
@@ -104,7 +105,7 @@ function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="brand-cta-box container-fluid py-5">
+      <section className="brand-cta-box about-cta-box container-fluid py-5">
         <div className="container text-center py-5">
           <p className="mb-3">Ready to transform your meetings?</p>
           <h3 className="cta-heading fw-bold mb-4">Get started with MeetFlow today</h3>
