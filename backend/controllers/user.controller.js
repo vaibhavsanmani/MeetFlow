@@ -1,52 +1,51 @@
 import httpStatus from "http-status";
-import {User} from "../models/user.model.js";
-import bcrypt,{hash} from "bcrypt";
+import { User } from "../models/user.model.js";
+import bcrypt from "bcrypt";
 import crypto from "crypto"
 
-
-const login = async(req,res)=>{
-    const {username,password}=req.body;
-    if (!username || !password){
-        return res.status(400).json({message:"please provide"});
+const login = async (req, res) => {
+    const { username, password } = req.body;
+    if (!username || !password) {
+        return res.status(httpStatus.BAD_REQUEST).json({ message: "Please provide username and password" });
     }
-    try{
-        const user = await User.findOne({username});
-        if(!user){
-            return res.status(httpStatus.NOT_FOUND).json({message:"Please register First"});
+    try {
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(httpStatus.NOT_FOUND).json({ message: "Please register first" });
         }
-        if(await bcrypt.compare(password,user.password)){
-            let token=crypto.randomBytes(20).toString("hex");
-            user.token=token;
-            await user.save();
-            return res.status(httpStatus.OK).json({token:token});
+        const passwordMatches = await bcrypt.compare(password, user.password);
+        if (!passwordMatches) {
+            return res.status(httpStatus.UNAUTHORIZED).json({ message: "Invalid credentials" });
         }
-
-    }catch(e){
-        return res.status(500).json({message:"Something Went Wrong"});
+        const token = crypto.randomBytes(20).toString("hex");
+        user.token = token;
+        await user.save();
+        return res.status(httpStatus.OK).json({ token });
+    } catch (e) {
+        return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: "Something went wrong" });
     }
 }
 
-const register = async(req,res)=>{
-    const {name,username,password}=req.body;
-
-    try{
-        const existingUser=await User.findOne({username});
-        if(existingUser){
-            return res.status(httpStatus.FOUND).json({message:"User already exists"})
+const register = async (req, res) => {
+    const { name, username, password } = req.body;
+    if (!name || !username || !password) {
+        return res.status(httpStatus.BAD_REQUEST).json({ message: "Please provide name, username, and password" });
+    }
+    try {
+        const existingUser = await User.findOne({ username });
+        if (existingUser) {
+            return res.status(httpStatus.CONFLICT).json({ message: "User already exists" });
         }
-        const hashedPassword=await bcrypt.hash(password,10);
-
-        const newUser= new User({
-            name:name,
-            username:username,
-            password:hashedPassword,
-        })
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newUser = new User({
+            name,
+            username,
+            password: hashedPassword,
+        });
         await newUser.save();
-        res.status(httpStatus.CREATED).json({message:"User Redistered"});
-
-    }
-    catch(e){
-        res.json({message:`Something Went Wrong ${e}`});
+        return res.status(httpStatus.CREATED).json({ message: "User registered" });
+    } catch (e) {
+        return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: `Something went wrong: ${e.message}` });
     }
 }
-export {login,register}
+export { login, register }
