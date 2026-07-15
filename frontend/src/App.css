@@ -1,96 +1,245 @@
+/* ===========================
+   LANDING PAGE - RESPONSIVE DESIGN
+   =========================== */
+
 .landingPageContainer {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   background: url("/public/background.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 .landingPageContainer nav {
-  padding-inline: 1.2rem;
-  padding-block: 1.6rem;
+  padding: var(--space-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .landingPageContainer nav h2 {
-  font-size: 1.8rem;
-  font-weight: 500;
+  font-size: clamp(1.25rem, 5vw, 1.8rem);
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .landingPageContainer nav .navlist {
   display: flex;
-  gap: 1.6rem;
+  gap: var(--space-md);
   cursor: pointer;
-
-}
-
-.landingMainContainer {
-  display: flex;
-  justify-content: space-between;
-  padding-inline: 3rem;
-  height: 80vh;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
 }
 
-.landingMainContainer>div:nth-child(1) {
-  font-size: 2.2rem;
+.landingPageContainer nav .navlist p,
+.landingPageContainer nav .navlist button,
+.landingPageContainer nav .navlist [role='button'] {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  white-space: nowrap;
 }
 
-.landingMainContainer>div:nth-child(1) div[role='button'] {
-  background: #D97500;
-  width: fit-content;
-  padding: 1rem;
-  border-radius: 20px;
-  margin-top: 1.9rem;
-}
-
-.landingMainContainer>div:nth-child(1) div[role='button'] a {
-  text-decoration: none;
+.landingPageContainer nav .navlist p,
+.landingPageContainer nav .navlist button {
+  background: transparent;
+  border: none;
   color: white;
-  font-size: 1.7rem;
 }
 
-.landingMainContainer>div:nth-child(2) img {
-  height: 70vh;
-  width: auto;
+.landingPageContainer nav .navlist p:hover,
+.landingPageContainer nav .navlist button:hover,
+.landingPageContainer nav .navlist p:focus-visible,
+.landingPageContainer nav .navlist button:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+  outline: 2px solid white;
+  outline-offset: 2px;
 }
+
+.landingPageContainer nav [role='button'] {
+  background: var(--primary-orange);
+  color: white;
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+}
+
+.landingPageContainer nav [role='button']:hover {
+  background: var(--primary-orange-dark);
+  transform: translateY(-2px);
+}
+
+.landingMainContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  padding: var(--space-lg);
+  align-items: center;
+  justify-items: center;
+  flex: 1;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .landingMainContainer {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    justify-items: start;
+    padding: var(--space-2xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .landingMainContainer {
+    padding: 0 3rem;
+  }
+}
+
+.landingMainContainer > div:nth-child(1) {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  line-height: 1.2;
+  max-width: 600px;
+}
+
+.landingMainContainer > div:nth-child(1) span {
+  display: inline-block;
+  color: var(--primary-orange);
+  font-weight: 700;
+}
+
+.landingMainContainer > div:nth-child(1) p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin: var(--space-md) 0;
+}
+
+.landingMainContainer > div:nth-child(1) button,
+.landingMainContainer > div:nth-child(1) [role='button'] {
+  background: var(--primary-orange);
+  color: white;
+  border: none;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-lg);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  margin-top: var(--space-lg);
+  display: inline-block;
+  text-decoration: none;
+}
+
+.landingMainContainer > div:nth-child(1) button:hover,
+.landingMainContainer > div:nth-child(1) [role='button']:hover {
+  background: var(--primary-orange-dark);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.landingMainContainer > div:nth-child(1) a {
+  color: white;
+  text-decoration: none;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.landingMainContainer > div:nth-child(2) {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.landingMainContainer > div:nth-child(2) img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+}
+
+/* ===========================
+   NAVIGATION BAR - RESPONSIVE
+   =========================== */
 
 .navBar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-inline: 20px;
+  padding: var(--space-md) var(--space-lg);
   text-align: center;
-
+  background: white;
+  box-shadow: var(--shadow-md);
 }
+
+@media (max-width: 480px) {
+  .navBar {
+    padding: var(--space-md);
+  }
+}
+
+/* ===========================
+   MEET CONTAINER - RESPONSIVE
+   =========================== */
+
 .meetContainer {
-  display: flex;
-  padding-inline: 20px;
-  height: 80vh;
-  gap: 10vw;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  padding: var(--space-lg);
+  min-height: 80vh;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
+@media (min-width: 768px) {
+  .meetContainer {
+    grid-template-columns: 1fr 1fr;
+    padding: var(--space-2xl);
+    gap: 10vw;
+  }
+}
 
+@media (min-width: 1024px) {
+  .meetContainer {
+    padding: 0 3rem;
+  }
+}
+
+/* ===========================
+   PANELS - RESPONSIVE
+   =========================== */
 
 .leftPanel {
-  height: 100%;
+  min-height: 100%;
   display: flex;
   align-items: center;
-
+  justify-content: center;
 }
 
 .rightPanel {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .rightPanel > img {
-  width: 30vw;
+  width: 100%;
+  max-width: 400px;
   height: auto;
-  border-radius: 20px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  object-fit: cover;
 }
