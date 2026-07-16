@@ -179,7 +179,7 @@
   justify-content: space-between;
   padding: var(--space-md) var(--space-lg);
   text-align: center;
-  background: white;
+  background: #fbfbfb;
   box-shadow: var(--shadow-md);
 }
 
