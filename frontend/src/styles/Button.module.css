@@ -1,6 +1,4 @@
-/* ===========================
-   BUTTON COMPONENT STYLES
-   =========================== */
+
 
 .btn {
   display: inline-flex;
@@ -19,8 +17,6 @@
   user-select: none;
   -webkit-user-select: none;
 }
-
-/* Variants */
 
 .btn-primary {
   background-color: var(--primary-orange);
@@ -85,8 +81,6 @@
   transform: translateY(-2px);
 }
 
-/* Sizes */
-
 .btn-xs {
   padding: var(--space-xs) var(--space-sm);
   font-size: var(--font-size-xs);
@@ -112,20 +106,16 @@
   font-size: var(--font-size-xl);
 }
 
-/* Full Width */
 
 .btn-full-width {
   width: 100%;
 }
-
-/* Disabled State */
 
 .btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-/* Loading State */
 
 .btn-loading {
   pointer-events: none;
@@ -137,14 +127,12 @@
   border-width: 2px;
 }
 
-/* Focus Visible */
 
 .btn:focus-visible {
   outline: 2px solid var(--primary-blue);
   outline-offset: 2px;
 }
 
-/* Responsive */
 
 @media (max-width: 480px) {
   .btn {
@@ -157,8 +145,6 @@
     padding: var(--space-lg) var(--space-lg);
   }
 }
-
-/* Accessibility - Reduced Motion */
 
 @media (prefers-reduced-motion: reduce) {
   .btn {
