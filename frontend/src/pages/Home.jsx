@@ -12,7 +12,7 @@ import {
 
 import RestoreIcon from "@mui/icons-material/Restore";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutlined";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 
 import { AuthContext } from "../contexts/AuthContext";
