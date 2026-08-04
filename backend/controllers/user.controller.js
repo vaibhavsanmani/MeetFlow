@@ -48,4 +48,45 @@ const register = async (req, res) => {
         return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: `Something went wrong: ${e.message}` });
     }
 }
-export { login, register }
+
+const addToActivity = async (req, res) => {
+    const { token, meeting_code } = req.body;
+    if (!token || !meeting_code) {
+        return res.status(httpStatus.BAD_REQUEST).json({ message: "Token and meeting code are required" });
+    }
+
+    try {
+        const user = await User.findOne({ token });
+        if (!user) {
+            return res.status(httpStatus.UNAUTHORIZED).json({ message: "Invalid token" });
+        }
+
+        user.activity = user.activity || [];
+        user.activity.push({ meetingCode: meeting_code, date: new Date() });
+        await user.save();
+
+        return res.status(httpStatus.OK).json({ message: "Activity added" });
+    } catch (e) {
+        return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: "Something went wrong" });
+    }
+}
+
+const getAllActivity = async (req, res) => {
+    const { token } = req.query;
+    if (!token) {
+        return res.status(httpStatus.BAD_REQUEST).json({ message: "Token is required" });
+    }
+
+    try {
+        const user = await User.findOne({ token });
+        if (!user) {
+            return res.status(httpStatus.UNAUTHORIZED).json({ message: "Invalid token" });
+        }
+
+        return res.status(httpStatus.OK).json(user.activity || []);
+    } catch (e) {
+        return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: "Something went wrong" });
+    }
+}
+
+export { login, register, addToActivity, getAllActivity }

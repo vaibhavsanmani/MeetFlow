@@ -17,7 +17,10 @@ export default function Meeting() {
   const [chatMessages, setChatMessages] = useState([])
   const [message, setMessage] = useState('')
 
-  const socket = useMemo(() => io(server, { transports: ['websocket'] }), [])
+  const socket = useMemo(
+    () => io(server, { transports: ['websocket'], autoConnect: false }),
+    []
+  )
 
   useEffect(() => {
     if (!meetingCode) {
@@ -25,28 +28,48 @@ export default function Meeting() {
       return
     }
 
-    socket.on('connect', () => {
+    const handleConnect = () => {
       setStatus('Connected')
       socket.emit('join-call', meetingCode)
-    })
+    }
 
-    socket.on('disconnect', () => {
+    const handleDisconnect = () => {
       setStatus('Disconnected')
-    })
+    }
 
-    socket.on('user-joined', (_, roomParticipants) => {
+    const handleConnectError = (error) => {
+      setStatus('Connection error')
+      console.error('Socket connection error:', error)
+    }
+
+    const handleUserJoined = (_, roomParticipants) => {
       setParticipants(roomParticipants)
-    })
+    }
 
-    socket.on('user-left', (socketId) => {
+    const handleUserLeft = (socketId) => {
       setParticipants((current) => current.filter((id) => id !== socketId))
-    })
+    }
 
-    socket.on('chat-message', (data, senderId) => {
+    const handleChatMessage = (data, senderId) => {
       setChatMessages((current) => [...current, { senderId, data }])
-    })
+    }
+
+    socket.on('connect', handleConnect)
+    socket.on('disconnect', handleDisconnect)
+    socket.on('connect_error', handleConnectError)
+    socket.on('user-joined', handleUserJoined)
+    socket.on('user-left', handleUserLeft)
+    socket.on('chat-message', handleChatMessage)
+
+    socket.connect()
 
     return () => {
+      socket.off('connect', handleConnect)
+      socket.off('disconnect', handleDisconnect)
+      socket.off('connect_error', handleConnectError)
+      socket.off('user-joined', handleUserJoined)
+      socket.off('user-left', handleUserLeft)
+      socket.off('chat-message', handleChatMessage)
       socket.disconnect()
     }
   }, [meetingCode, socket])
