@@ -243,3 +243,28 @@
   box-shadow: var(--shadow-lg);
   object-fit: cover;
 }
+
+/* ===========================
+   HOME PAGE ACTIONS
+   =========================== */
+
+.meetingActionsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.meetingActionsRow button {
+  min-height: 44px;
+}
+
+@media (max-width: 600px) {
+  .meetingActionsRow {
+    flex-direction: column;
+  }
+
+  .meetingActionsRow button {
+    width: 100%;
+  }
+}
