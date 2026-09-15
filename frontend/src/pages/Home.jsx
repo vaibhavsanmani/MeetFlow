@@ -5,7 +5,6 @@ import "../App.css";
 
 import {
   Button,
-  IconButton,
   TextField,
   Snackbar,
 } from "@mui/material";
@@ -96,25 +95,25 @@ function HomeComponent() {
     <>
       {/* Navbar */}
       <div className="navBar">
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div className="brandWrap">
+          <div className="brandBadge">VC</div>
           <h2>Apna Video Call</h2>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "15px",
-          }}
-        >
-          <IconButton onClick={() => navigate("/history")}>
-            <RestoreIcon />
-          </IconButton>
-
-          <p style={{ cursor: "pointer" }}>History</p>
+        <div className="navActions">
+          <button
+            type="button"
+            className="historyLink"
+            onClick={() => navigate("/history")}
+          >
+            <RestoreIcon fontSize="small" />
+            History
+          </button>
 
           <Button
+            className="logoutButton"
             color="error"
+            variant="outlined"
             onClick={() => {
               localStorage.removeItem("token");
               navigate("/auth");
@@ -129,23 +128,18 @@ function HomeComponent() {
       <div className="meetContainer">
         {/* Left */}
         <div className="leftPanel">
-          <div>
-            <h1 style={{ marginBottom: "10px" }}>
-              Premium Video Meetings
-            </h1>
+          <div className="heroContent">
+            <div className="heroBadge">Secure • Instant • Reliable</div>
 
-            <p
-              style={{
-                color: "#666",
-                marginBottom: "30px",
-                maxWidth: "500px",
-              }}
-            >
+            <h1>Premium Video Meetings</h1>
+
+            <p>
               Create a secure meeting or join an existing one instantly.
             </p>
 
             <TextField
               fullWidth
+              className="meetingInput"
               label="Meeting Code"
               variant="outlined"
               value={meetingCode}
@@ -159,6 +153,7 @@ function HomeComponent() {
 
             <div className="meetingActionsRow">
               <Button
+                className="primaryAction"
                 variant="contained"
                 startIcon={<VideoCallIcon />}
                 onClick={handleJoinVideoCall}
@@ -167,6 +162,7 @@ function HomeComponent() {
               </Button>
 
               <Button
+                className="secondaryAction"
                 variant="outlined"
                 startIcon={<AddCircleOutlineIcon />}
                 onClick={handleCreateMeeting}
@@ -175,6 +171,7 @@ function HomeComponent() {
               </Button>
 
               <Button
+                className="secondaryAction"
                 variant="outlined"
                 startIcon={<ContentPasteIcon />}
                 onClick={handlePasteCode}
@@ -183,6 +180,7 @@ function HomeComponent() {
               </Button>
 
               <Button
+                className="secondaryAction"
                 variant="outlined"
                 startIcon={<ContentCopyIcon />}
                 onClick={copyMeetingCode}
@@ -192,6 +190,7 @@ function HomeComponent() {
               </Button>
 
               <Button
+                className="ghostAction"
                 variant="text"
                 onClick={generateMeetingCode}
               >
@@ -202,22 +201,11 @@ function HomeComponent() {
         </div>
 
         {/* Right */}
-        <div
-          className="rightPanel"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <img
-            src="/logo3.png"
-            alt="Video Call"
-            style={{
-              width: "100%",
-              maxWidth: "500px",
-            }}
-          />
+        <div className="rightPanel">
+          <div className="heroVisual">
+            <div className="visualGlow" />
+            <img src="/logo3.png" alt="Video Call" />
+          </div>
         </div>
       </div>
 
