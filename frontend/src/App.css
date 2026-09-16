@@ -239,6 +239,27 @@
   transform: translateY(-1px);
 }
 
+.themeToggle {
+  appearance: none;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  color: var(--text-primary);
+  border-radius: 999px;
+  padding: 0.65rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.themeToggle:hover {
+  background: rgba(14, 165, 233, 0.06);
+  border-color: rgba(14, 165, 233, 0.25);
+  transform: translateY(-1px);
+}
+
 .logoutButton {
   border-radius: 999px !important;
   font-weight: 700 !important;
@@ -418,4 +439,97 @@
 
 .ghostAction {
   color: #0f172a !important;
+}
+
+/* ===========================
+   DARK MODE STYLES
+   =========================== */
+
+[data-theme="dark"] .navBar {
+  background: rgba(26, 31, 46, 0.92);
+  border-bottom-color: rgba(71, 85, 105, 0.2);
+}
+
+[data-theme="dark"] .brandWrap h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .historyLink,
+[data-theme="dark"] .themeToggle {
+  background: rgba(36, 45, 61, 0.8);
+  border-color: rgba(71, 85, 105, 0.25);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .historyLink:hover,
+[data-theme="dark"] .themeToggle:hover {
+  background: rgba(14, 165, 233, 0.15);
+  border-color: rgba(14, 165, 233, 0.35);
+}
+
+[data-theme="dark"] .meetContainer {
+  background: radial-gradient(circle at top left, rgba(14, 165, 233, 0.08), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255, 152, 57, 0.08), transparent 35%);
+}
+
+[data-theme="dark"] .heroContent h1 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .heroContent p {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .heroBadge {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border-color: rgba(59, 130, 246, 0.25);
+}
+
+[data-theme="dark"] .meetingInput .MuiOutlinedInput-root {
+  background: rgba(30, 41, 59, 0.8);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .meetingInput .MuiOutlinedInput-root fieldset {
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+[data-theme="dark"] .meetingInput .MuiOutlinedInput-root:hover fieldset,
+[data-theme="dark"] .meetingInput .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: rgba(14, 165, 233, 0.6) !important;
+}
+
+[data-theme="dark"] .meetingInput .MuiInputBase-input {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .meetingInput .MuiInputBase-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+[data-theme="dark"] .meetingInput .MuiFormLabel-root {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .secondaryAction {
+  border-color: rgba(71, 85, 105, 0.4) !important;
+  background: rgba(30, 41, 59, 0.6) !important;
+}
+
+[data-theme="dark"] .secondaryAction:hover {
+  background: rgba(71, 85, 105, 0.3) !important;
+}
+
+[data-theme="dark"] .ghostAction {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .ghostAction:hover {
+  background: rgba(71, 85, 105, 0.2) !important;
+}
+
+[data-theme="dark"] .rightPanel > .heroVisual > img {
+  background: rgba(30, 41, 59, 0.8);
 }

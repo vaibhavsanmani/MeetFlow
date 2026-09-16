@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import withAuth from "../utils/withAuth";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
@@ -10,6 +10,8 @@ import {
 } from "@mui/material";
 
 import RestoreIcon from "@mui/icons-material/Restore";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutlined";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
@@ -23,6 +25,28 @@ function HomeComponent() {
 
   const [meetingCode, setMeetingCode] = useState("");
   const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    // Initialize theme from localStorage or system preference
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    } else {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const initialTheme = prefersDark ? "dark" : "light";
+      setTheme(initialTheme);
+      document.documentElement.setAttribute("data-theme", initialTheme);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
 
   const normalizeMeetingCode = (value = "") =>
     value.replace(/\s+/g, "").toUpperCase();
@@ -101,6 +125,19 @@ function HomeComponent() {
         </div>
 
         <div className="navActions">
+          <button
+            type="button"
+            className="themeToggle"
+            onClick={toggleTheme}
+            title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+          >
+            {theme === "light" ? (
+              <Brightness4Icon fontSize="small" />
+            ) : (
+              <Brightness7Icon fontSize="small" />
+            )}
+          </button>
+
           <button
             type="button"
             className="historyLink"
