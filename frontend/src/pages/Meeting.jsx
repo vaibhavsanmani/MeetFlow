@@ -4,10 +4,9 @@ import io from 'socket.io-client'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
 import TextField from '@mui/material/TextField'
 import server from '../environment'
+import styles from '../styles/videoComponent.module.css'
 
 export default function Meeting() {
   const { meetingCode } = useParams()
@@ -82,73 +81,111 @@ export default function Meeting() {
   }
 
   return (
-    <Box
-      sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        gap: 3,
-        p: 4,
-      }}
-    >
-      <Typography variant="h4" component="h1">
-        Meeting Room
-      </Typography>
-      <Typography variant="subtitle1" color="text.secondary">
-        Meeting code: <strong>{meetingCode}</strong>
-      </Typography>
-      <Typography variant="body2" color="text.secondary">
-        Status: {status}
-      </Typography>
-
-      <Box sx={{ width: '100%', maxWidth: 600 }}>
-        <Typography variant="h6">Participants</Typography>
-        <List dense>
-          {participants.length > 0 ? (
-            participants.map((participant) => (
-              <ListItem key={participant}>
-                {participant === socket.id ? 'You' : participant}
-              </ListItem>
-            ))
-          ) : (
-            <ListItem>No participants yet</ListItem>
-          )}
-        </List>
-      </Box>
-
-      <Box sx={{ width: '100%', maxWidth: 600 }}>
-        <Typography variant="h6">Chat</Typography>
-        <Box sx={{ display: 'flex', gap: 1, mb: 1 }}>
-          <TextField
-            fullWidth
-            label="Type a message"
-            variant="outlined"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                handleSendMessage()
-              }
-            }}
-          />
-          <Button variant="contained" onClick={handleSendMessage}>
-            Send
-          </Button>
+    <Box className={styles.meetingShell}>
+      <Box className={styles.topBar}>
+        <Box>
+          <Typography variant="overline" className={styles.eyebrow}>
+            Video Call
+          </Typography>
+          <Typography variant="h4" className={styles.heading}>
+            Meeting Room
+          </Typography>
         </Box>
-        <List dense>
-          {chatMessages.map((item, index) => (
-            <ListItem key={index}>
-              <strong>{item.senderId}:</strong>&nbsp;{item.data}
-            </ListItem>
-          ))}
-        </List>
+
+        <Box className={styles.codePill}>Code: {meetingCode}</Box>
       </Box>
 
-      <Button variant="outlined" onClick={() => navigate('/home')}>
-        Leave Meeting
-      </Button>
+      <Box className={styles.statusBar}>
+        <span
+          className={
+            status === 'Connected' ? styles.statusDotConnected : styles.statusDot
+          }
+        />
+        <Typography variant="body2" className={styles.statusText}>
+          Status: {status}
+        </Typography>
+      </Box>
+
+      <Box className={styles.mainGrid}>
+        <Box className={styles.panel}>
+          <Box className={styles.panelHeader}>
+            <Typography variant="h6">Participants</Typography>
+            <Box className={styles.badge}>{participants.length}</Box>
+          </Box>
+
+          <Box className={styles.participantList}>
+            {participants.length > 0 ? (
+              participants.map((participant) => (
+                <Box key={participant} className={styles.participantCard}>
+                  <span className={styles.avatar}>
+                    {participant === socket.id ? 'Y' : participant.charAt(0).toUpperCase()}
+                  </span>
+                  <Typography variant="body1">
+                    {participant === socket.id ? 'You' : participant}
+                  </Typography>
+                </Box>
+              ))
+            ) : (
+              <Box className={styles.emptyState}>No participants yet</Box>
+            )}
+          </Box>
+        </Box>
+
+        <Box className={`${styles.panel} ${styles.chatPanel}`}>
+          <Box className={styles.panelHeader}>
+            <Typography variant="h6">Chat</Typography>
+          </Box>
+
+          <Box className={styles.messages}>
+            {chatMessages.length > 0 ? (
+              chatMessages.map((item, index) => (
+                <Box
+                  key={index}
+                  className={
+                    item.senderId === 'Me' ? styles.messageBubbleSelf : styles.messageBubble
+                  }
+                >
+                  <Typography variant="caption" className={styles.messageMeta}>
+                    {item.senderId}
+                  </Typography>
+                  <Typography variant="body2">{item.data}</Typography>
+                </Box>
+              ))
+            ) : (
+              <Box className={styles.emptyState}>Start the conversation</Box>
+            )}
+          </Box>
+
+          <Box className={styles.inputRow}>
+            <TextField
+              fullWidth
+              label="Type a message"
+              variant="outlined"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleSendMessage()
+                }
+              }}
+              className={styles.messageInput}
+            />
+            <Button variant="contained" onClick={handleSendMessage} className={styles.sendButton}>
+              Send
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+
+      <Box className={styles.footerBar}>
+        <Button
+          variant="outlined"
+          onClick={() => navigate('/home')}
+          className={styles.leaveButton}
+        >
+          Leave Meeting
+        </Button>
+      </Box>
     </Box>
   )
 }
