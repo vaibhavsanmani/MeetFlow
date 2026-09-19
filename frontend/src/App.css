@@ -179,10 +179,10 @@
   justify-content: space-between;
   gap: var(--space-lg);
   padding: 1rem 1.5rem;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(148, 163, 184, 0.18);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -195,21 +195,23 @@
 }
 
 .brandBadge {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 14px;
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 16px;
   background: linear-gradient(135deg, #ff9839, #ffb75d);
   display: grid;
   place-items: center;
   color: white;
   font-weight: 800;
-  box-shadow: 0 12px 24px rgba(255, 152, 57, 0.3);
+  box-shadow: 0 12px 28px rgba(255, 152, 57, 0.35);
+  letter-spacing: -0.04em;
 }
 
 .brandWrap h2 {
   margin: 0;
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   letter-spacing: -0.03em;
+  color: var(--text-primary);
 }
 
 .navActions {
@@ -229,7 +231,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-weight: 600;
+  font-weight: 700;
   transition: all 0.2s ease;
 }
 
@@ -263,7 +265,8 @@
 .logoutButton {
   border-radius: 999px !important;
   font-weight: 700 !important;
-  padding: 0.6rem 1.15rem !important;
+  padding: 0.7rem 1.2rem !important;
+  box-shadow: none !important;
 }
 
 @media (max-width: 480px) {
@@ -295,13 +298,13 @@
   align-items: center;
   max-width: 1280px;
   margin: 0 auto;
-  background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.12), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(255, 152, 57, 0.12), transparent 35%);
+  background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.14), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(255, 152, 57, 0.12), transparent 36%);
 }
 
 @media (min-width: 768px) {
   .meetContainer {
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns: 1.08fr 0.92fr;
     padding: 2.5rem 2.5rem 3rem;
     gap: min(7vw, 6rem);
   }
@@ -325,7 +328,13 @@
 }
 
 .heroContent {
-  width: min(100%, 560px);
+  width: min(100%, 580px);
+  padding: clamp(1.1rem, 2vw, 1.5rem);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.36);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(12px);
 }
 
 .heroBadge {
@@ -337,16 +346,18 @@
   border-radius: 999px;
   padding: 0.5rem 0.9rem;
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
 
 .heroContent h1 {
-  margin: 0 0 0.9rem;
-  letter-spacing: -0.05em;
+  margin: 0 0 1rem;
+  letter-spacing: -0.055em;
   color: var(--text-primary);
+  font-size: clamp(2.4rem, 6vw, 4.25rem);
+  line-height: 0.98;
 }
 
 .heroContent p {
@@ -363,13 +374,22 @@
 
 .meetingInput .MuiOutlinedInput-root {
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.82);
   box-shadow: 0 8px 24px rgba(148, 163, 184, 0.08);
+  transition: all 0.25s ease;
+}
+
+.meetingInput .MuiOutlinedInput-root:hover {
+  box-shadow: 0 12px 28px rgba(59, 130, 246, 0.12);
 }
 
 .meetingInput .MuiOutlinedInput-root:hover fieldset,
 .meetingInput .MuiOutlinedInput-root.Mui-focused fieldset {
   border-color: rgba(14, 165, 233, 0.7) !important;
+}
+
+.meetingInput .MuiInputLabel-root {
+  color: var(--text-secondary);
 }
 
 .rightPanel {
@@ -389,7 +409,7 @@
   position: absolute;
   inset: 12% 18%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.22), rgba(255, 152, 57, 0.1), transparent 68%);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.22), rgba(255, 152, 57, 0.12), transparent 68%);
   filter: blur(18px);
 }
 
@@ -398,9 +418,9 @@
   width: 100%;
   max-width: 450px;
   height: auto;
-  border-radius: 28px;
+  border-radius: 30px;
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.15);
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.14);
   object-fit: cover;
 }
 
@@ -424,21 +444,31 @@
 
 .primaryAction {
   background: linear-gradient(135deg, #ff9839, #ff7d1f) !important;
-  box-shadow: 0 12px 24px rgba(255, 152, 57, 0.2) !important;
+  box-shadow: 0 12px 24px rgba(255, 152, 57, 0.24) !important;
 }
 
 .primaryAction:hover {
   background: linear-gradient(135deg, #ff8a2b, #f97316) !important;
+  transform: translateY(-1px);
 }
 
 .secondaryAction {
   border-color: rgba(148, 163, 184, 0.4) !important;
   color: var(--text-primary) !important;
-  background: rgba(255, 255, 255, 0.7) !important;
+  background: rgba(255, 255, 255, 0.72) !important;
+}
+
+.secondaryAction:hover {
+  background: rgba(14, 165, 233, 0.05) !important;
+  border-color: rgba(14, 165, 233, 0.28) !important;
 }
 
 .ghostAction {
-  color: #0f172a !important;
+  color: var(--text-primary) !important;
+}
+
+.ghostAction:hover {
+  background: rgba(14, 165, 233, 0.05) !important;
 }
 
 /* ===========================
@@ -470,6 +500,12 @@
 [data-theme="dark"] .meetContainer {
   background: radial-gradient(circle at top left, rgba(14, 165, 233, 0.08), transparent 30%),
     radial-gradient(circle at bottom right, rgba(255, 152, 57, 0.08), transparent 35%);
+}
+
+[data-theme="dark"] .heroContent {
+  background: rgba(15, 23, 42, 0.42);
+  border-color: rgba(71, 85, 105, 0.25);
+  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.28);
 }
 
 [data-theme="dark"] .heroContent h1 {
@@ -532,202 +568,4 @@
 
 [data-theme="dark"] .rightPanel > .heroVisual > img {
   background: rgba(30, 41, 59, 0.8);
-}
-
-/* ===========================
-   HISTORY PAGE STYLES
-   =========================== */
-
-.historyPage {
-  min-height: 100vh;
-  background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.12), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(255, 152, 57, 0.1), transparent 35%);
-}
-
-.historyContent {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1rem 3rem;
-}
-
-.historyHeader {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.historyBadge {
-  margin-bottom: 0.75rem;
-}
-
-.historyHeader h1 {
-  margin: 0;
-  color: var(--text-primary);
-}
-
-.historyStats {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.historyStatCard {
-  min-width: 120px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  border-radius: 18px;
-  padding: 0.9rem 1rem;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-}
-
-.historyStatLabel {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-}
-
-.historyStatCard strong {
-  font-size: 1.05rem;
-  color: var(--text-primary);
-  word-break: break-all;
-}
-
-.historyGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-@media (min-width: 768px) {
-  .historyGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.historyCard {
-  border-radius: 24px !important;
-  border-color: rgba(148, 163, 184, 0.2) !important;
-  background: rgba(255, 255, 255, 0.72) !important;
-  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.06) !important;
-}
-
-.historyCardContent {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1.25rem !important;
-}
-
-.historyCardHeader {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.historyMetaLabel {
-  display: block;
-  letter-spacing: 0.08em !important;
-  margin-bottom: 0.35rem !important;
-}
-
-.historyCode {
-  font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.18em;
-  color: var(--text-primary);
-}
-
-.historyChip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  border-radius: 999px;
-  padding: 0.45rem 0.65rem;
-  background: rgba(59, 130, 246, 0.1);
-  color: #1d4ed8;
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  font-size: 0.76rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.historyDetails {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.historyActions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-top: 0.25rem;
-}
-
-.historyActions .primaryAction {
-  background: linear-gradient(135deg, #ff9839, #ff7d1f) !important;
-  box-shadow: 0 10px 24px rgba(255, 152, 57, 0.2) !important;
-}
-
-.historyCopyButton {
-  border-radius: 12px !important;
-  border-color: rgba(148, 163, 184, 0.35) !important;
-  color: var(--text-primary) !important;
-}
-
-.historyLoading {
-  display: grid;
-  place-items: center;
-  min-height: 220px;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  border-radius: 22px;
-  color: var(--text-secondary);
-  font-weight: 600;
-}
-
-[data-theme="dark"] .historyPage {
-  background: radial-gradient(circle at top left, rgba(14, 165, 233, 0.08), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(255, 152, 57, 0.08), transparent 35%);
-}
-
-[data-theme="dark"] .historyHeader h1,
-[data-theme="dark"] .historyStatCard strong,
-[data-theme="dark"] .historyCode {
-  color: var(--text-primary);
-}
-
-[data-theme="dark"] .historyStatCard,
-[data-theme="dark"] .historyCard,
-[data-theme="dark"] .historyLoading {
-  background: rgba(30, 41, 59, 0.8) !important;
-  border-color: rgba(71, 85, 105, 0.3) !important;
-}
-
-[data-theme="dark"] .historyMetaLabel,
-[data-theme="dark"] .historyStatLabel,
-[data-theme="dark"] .historyDetails {
-  color: var(--text-secondary) !important;
-}
-
-[data-theme="dark"] .historyChip {
-  background: rgba(59, 130, 246, 0.12);
-  border-color: rgba(96, 165, 250, 0.3);
-  color: #93c5fd;
-}
-
-[data-theme="dark"] .historyCopyButton {
-  border-color: rgba(71, 85, 105, 0.4) !important;
-  color: var(--text-primary) !important;
 }
