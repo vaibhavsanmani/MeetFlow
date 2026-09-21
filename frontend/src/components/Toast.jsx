@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import '../styles/Toast.module.css';
+import styles from '../styles/Toast.module.css';
 
 export const useToast = () => {
   const [toasts, setToasts] = useState([]);
@@ -9,7 +9,7 @@ export const useToast = () => {
     const toast = {
       id,
       message,
-      type, // 'success', 'error', 'info', 'warning'
+      type,
       duration,
     };
 
@@ -28,16 +28,16 @@ export const useToast = () => {
     setToasts(prev => prev.filter(toast => toast.id !== id));
   }, []);
 
-  const success = useCallback((message, duration = 3000) => 
+  const success = useCallback((message, duration = 3000) =>
     addToast(message, 'success', duration), [addToast]);
-  
-  const error = useCallback((message, duration = 3000) => 
+
+  const error = useCallback((message, duration = 3000) =>
     addToast(message, 'error', duration), [addToast]);
-  
-  const warning = useCallback((message, duration = 3000) => 
+
+  const warning = useCallback((message, duration = 3000) =>
     addToast(message, 'warning', duration), [addToast]);
-  
-  const info = useCallback((message, duration = 3000) => 
+
+  const info = useCallback((message, duration = 3000) =>
     addToast(message, 'info', duration), [addToast]);
 
   return {
@@ -53,23 +53,23 @@ export const useToast = () => {
 
 const Toast = ({ id, message, type, onClose }) => {
   return (
-    <div 
-      className={`toast toast-${type}`}
+    <div
+      className={`${styles.toast} ${styles[`toast-${type}`]}`}
       role="status"
       aria-live="polite"
       aria-atomic="true"
     >
-      <div className="toast-content">
-        <span className="toast-icon" aria-hidden="true">
+      <div className={styles['toast-content']}>
+        <span className={styles['toast-icon']} aria-hidden="true">
           {type === 'success' && '✓'}
           {type === 'error' && '✕'}
           {type === 'warning' && '⚠'}
           {type === 'info' && 'ℹ'}
         </span>
-        <p className="toast-message">{message}</p>
+        <p className={styles['toast-message']}>{message}</p>
       </div>
-      <button 
-        className="toast-close"
+      <button
+        className={styles['toast-close']}
         onClick={() => onClose(id)}
         aria-label="Close notification"
       >
@@ -81,7 +81,7 @@ const Toast = ({ id, message, type, onClose }) => {
 
 export const ToastContainer = ({ toasts, onClose }) => {
   return (
-    <div className="toast-container" role="region" aria-label="Notifications">
+    <div className={styles['toast-container']} role="region" aria-label="Notifications">
       {toasts.map(toast => (
         <Toast
           key={toast.id}
