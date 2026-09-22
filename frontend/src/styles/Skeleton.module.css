@@ -1,19 +1,34 @@
+
 .skeleton {
-  background: linear-gradient(
-    90deg,
-    var(--bg-soft) 0%,
-    var(--border-light) 50%,
-    var(--bg-soft) 100%
-  );
-  background-size: 200% 100%;
-  animation: skeleton 1.5s infinite;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-soft, #eee);
   border-radius: var(--radius-md);
   display: block;
+}
+
+.skeleton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  height: 100%;
+  width: 150%;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: translateX(0);
+  animation: shimmer 1.4s linear infinite;
+  pointer-events: none;
 }
 
 .skeleton-circle {
   border-radius: 50%;
 }
+
 
 .skeleton-text {
   height: 1rem;
@@ -30,6 +45,7 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
+  display: inline-block;
 }
 
 .skeleton-card {
@@ -44,18 +60,21 @@
   gap: var(--space-md);
 }
 
-@keyframes skeleton {
+@keyframes shimmer {
   0% {
-    background-position: 200% 0;
+    transform: translateX(-100%);
   }
   100% {
-    background-position: -200% 0;
+    transform: translateX(100%);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .skeleton {
+  .skeleton::before {
     animation: none;
-    background: var(--bg-soft);
+    display: none;
+  }
+  .skeleton {
+    background-color: var(--bg-soft, #eee);
   }
 }
